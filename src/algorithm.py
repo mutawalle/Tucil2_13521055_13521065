@@ -45,12 +45,8 @@ def stripClosest(strip: list[Point], stripIndex: list[int], minDistance: TwoPoin
     # Pre-processing
     # List terurut berdasarkan y (dimensi kedua)
     combined = [list(a) for a in zip(strip, stripIndex)]
-    # combined = list(zip(strip, stripIndex))
-    # print(combined)
     mergeSortZip(combined, 1)
 
-    # combined = zip(strip, stripIndex)
-    # combined = sorted(combined, key=lambda x:x[0].values[1])
     stripIndex = [y for x, y in combined]
     strip = [x for x, y in combined]
 
