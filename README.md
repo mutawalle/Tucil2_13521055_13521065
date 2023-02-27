@@ -14,19 +14,27 @@ Pencarian 2 titik terdekat merupakan salah satu permasalahan klasik. Pada progra
 Pada mulanya kumpulan titik akan akan dibagi menjadi dua bagian. Kemudian setiap bagian akan dicari jarak dua titik terkceilnya. Solusi tiap bagian akan dibandingkan dan yang paling rendahh akan menjadi solusi untuk permaslahan yang utama.
 
 
-## Struktur Folder
+## Struktur Program
 ```
 .
-│   .gitignore
-│   README.md
-│                   
-├─── src
-│   └─── main.py
-│        type.py
-│        algorithm.py
-|        ioProcedure.py
-|
-└─── test
+├─── .gitignore
+├─── README.md
+│     
+├─── doc
+│     └─── Tucil2_13521055_13521065.pdf
+│
+├─── img
+│     ├─── plot1.jpg	
+│     ├─── plot2.jpg	
+│     ├─── test1.jpg
+│     ├─── test2.jpg		
+│     └─── test3.jpg
+│
+└─── src
+      ├─── main.py
+      ├─── type.py
+      ├─── algorithm.py
+      └─── ioProcedure.py
 ```
 
 ## Requirement Program
@@ -55,12 +63,12 @@ Pada mulanya kumpulan titik akan akan dibagi menjadi dua bagian. Kemudian setiap
 </p>
 
 ## Author
-* Nama: Muhammad Bangkit Dwi Cahyono
-  NIM: 13520055
-  Prodi/Jurusan: STEI/Teknik Informatika
+* Nama: Muhammad Bangkit Dwi Cahyono <br />
+  NIM: 13520055 <br />
+  Prodi/Jurusan: STEI/Teknik Informatika <br />
   Profile GitHub: [bangkitdc](https://github.com/bangkitdc)
 
-* Nama: Mutawally Nawwar
-  NIM: 13520065
-  Prodi/Jurusan: STEI/Teknik Informatika
+* Nama: Mutawally Nawwar <br />
+  NIM: 13520065 <br />
+  Prodi/Jurusan: STEI/Teknik Informatika <br />
   Profile GitHub: [mutawalle](https://github.com/mutawalle)
