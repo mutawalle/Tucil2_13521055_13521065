@@ -3,6 +3,7 @@ class Point:
         self.dimension = dimension
         self.values = values
 
+
 class TwoPointDistance:
     def __init__(self, distance: float, index1: int, index2: int):
         self.distance = distance
