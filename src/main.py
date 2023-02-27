@@ -51,17 +51,24 @@ else:
         y_values = []
         z_values = []
 
-    for i in range(len(resultList)):
-        if (i == result.index1 or i == result.index2):
-            zdata = resultList[i].values[0]
-            xdata = resultList[i].values[1]
-            ydata = resultList[i].values[2]
-            ax.scatter3D(xdata, ydata, zdata, color = "red")
-        else:
-            zdata = resultList[i].values[0]
-            xdata = resultList[i].values[1]
-            ydata = resultList[i].values[2]
-            ax.scatter3D(xdata, ydata, zdata, color = "blue")
+        for i in range(len(resultList)):
+            if (i == result.index1 or i == result.index2):
+                xdata = resultList[i].values[0]
+                x_values.append(xdata)
+
+                ydata = resultList[i].values[1]
+                y_values.append(ydata)
+
+                zdata = resultList[i].values[2]
+                z_values.append(zdata)
+
+                ax.scatter3D(xdata, ydata, zdata, color = "red")
+            else:
+                xdata = resultList[i].values[0]
+                ydata = resultList[i].values[1]
+                zdata = resultList[i].values[2]
+
+                ax.scatter3D(xdata, ydata, zdata, color = "blue")
 
         ax.plot(x_values, y_values, z_values, color = "red")
         ax.set_title('3D Points', fontsize = 14)
