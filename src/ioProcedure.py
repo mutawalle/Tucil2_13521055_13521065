@@ -2,7 +2,6 @@ from type import Point
 import math
 import random
 
-
 def inputProc(n: int, d: int, listPoint: list[Point]):
     # n : banyak point
     n = int(input("Masukan jumlah titik: "))

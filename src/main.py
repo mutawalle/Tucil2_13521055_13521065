@@ -1,6 +1,7 @@
 from type import Point, TwoPointDistance
 from ioProcedure import inputProc, printResPoint
 from algorithm import minimumTwoPointDistance, bruteForce
+import algorithm
 
 # plotting
 from mpl_toolkits import mplot3d
@@ -10,22 +11,42 @@ import matplotlib.pyplot as plt
 # time
 import time
 
+# platform
+import platform
+
 n: int = 0
 d: int = 0
 listPoint: list[Point] = []
 result: TwoPointDistance
 
+print("============================================")
+print("====            CLOSEST POINT            ===")
+print("============================================")
+print()
+
 # Input banyak point (n) dan dimensi (d)
 inputProc(n, d, listPoint)
 
-if (listPoint[0].dimension < 2):
-    print("Maaf, program hanya bisa menghitung point dengan dimensi > 1")
+if (listPoint[0].dimension < 2 or len(listPoint) < 2):
+    print("Maaf, program hanya bisa menghitung point dengan dimensi > 1 dan titik > 1")
 else:
+    print()
+    print("--- System Specs ---")
+    my_system = platform.uname()
+    print(f"System       : {my_system.system}")
+    print(f"Node Name    : {my_system.node}")
+    print(f"Release      : {my_system.release}")
+    print(f"Version      : {my_system.version}")
+    print(f"Machine      : {my_system.machine}")
+    print(f"Processor    : {my_system.processor}")
+    print()
+
     start_time = time.time()
     result, resultList = minimumTwoPointDistance(listPoint)
     res_time = time.time() - start_time
     print("--- Divide & Conquer Algorithm ---")
     print("Execution time: %s seconds" % (res_time))
+    print("Count amount: ", algorithm.countDNC)
     print("Jarak terpendek yang didapat: ", result.distance, " satuan")
 
     printResPoint(resultList, result.index1)
@@ -37,6 +58,7 @@ else:
     res_time = time.time() - start_time
     print("--- Brute Force Algorithm ---")
     print("Execution time: %s seconds" % (res_time))
+    print("Count amount: ", algorithm.countBF)
     print("Jarak terpendek yang didapat: ", resultBF.distance, " satuan")
 
     printResPoint(listPoint, resultBF.index1)
