@@ -19,14 +19,13 @@ Pada mulanya kumpulan titik akan akan dibagi menjadi dua bagian. Kemudian setiap
 │   .gitignore
 │   README.md
 │                   
-├───src
-│   │   main.py
-│   └───type.py
-│       algorithm.py
-|       ioProcedure.py
+├─── src
+│   └─── main.py
+│        type.py
+│        algorithm.py
+|        ioProcedure.py
 |
-└───test
-
+└─── test
 ```
 
 ## Requirement Program
@@ -34,7 +33,7 @@ Pada mulanya kumpulan titik akan akan dibagi menjadi dua bagian. Kemudian setiap
 * Matplotlib untuk visualisasi
 
 ## Cara Menjalankan Program
-1. Jalankan main.py yang berada pada folder src
+1. Jalankan main.py yang berada pada folder src dengan mengetik `python main.py`
 
 ## Author
 * Nama: Muhammad Bangkit Dwi Cahyono
