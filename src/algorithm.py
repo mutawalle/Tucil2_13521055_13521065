@@ -1,8 +1,11 @@
 from type import Point, TwoPointDistance
 import math
 
+countBF = 0
+countDNC = 0
 
 def bruteForce(listPoint: list[Point]) -> TwoPointDistance:
+    global countBF
     # Algoritma Brute Force
     # mencari jarak terdekat dengan mencoba semua kemungkinan dari point yang ada
     if (len(listPoint) == 1):
@@ -10,12 +13,14 @@ def bruteForce(listPoint: list[Point]) -> TwoPointDistance:
     else:
         resMinDistance: float = TwoPointDistance(
             distance(listPoint[0], listPoint[1]), 0, 1)
+        countBF += 1
 
         for i in range(len(listPoint)):
             for j in range(i + 1, len(listPoint)):
                 if distance(listPoint[i], listPoint[j]) < resMinDistance.distance:
                     resMinDistance = TwoPointDistance(
                         distance(listPoint[i], listPoint[j]), i, j)
+                countBF += 1
 
         return resMinDistance
 
@@ -35,14 +40,19 @@ def stripClosest(strip: list[Point], stripIndex: list[int], minDistance: TwoPoin
     # Menghasilkan TwoPointDistance pada Strip Area
     min_distance: float = minDistance.distance
     resMinDistance: TwoPointDistance = minDistance
+    global countDNC
 
     # Pre-processing
     # List terurut berdasarkan y (dimensi kedua)
-    combined = list(zip(strip, stripIndex))
+    combined = [list(a) for a in zip(strip, stripIndex)]
+    # combined = list(zip(strip, stripIndex))
+    # print(combined)
     mergeSortZip(combined, 1)
+
+    # combined = zip(strip, stripIndex)
+    # combined = sorted(combined, key=lambda x:x[0].values[1])
     stripIndex = [y for x, y in combined]
     strip = [x for x, y in combined]
-    # strip = sorted(strip, key = lambda Point: Point.values[1])
 
     for i in range(len(strip)):
         for j in range(i + 1, len(strip)):
@@ -52,10 +62,12 @@ def stripClosest(strip: list[Point], stripIndex: list[int], minDistance: TwoPoin
                 break
 
             # Jika lebih kecil, update
-            if distance(strip[i], strip[j]) < min_distance:
-                min_distance = distance(strip[i], strip[j])
+            temp_distance = distance(strip[i], strip[j])
+            countDNC += 1
+            if temp_distance < min_distance:
+                min_distance = temp_distance
                 resMinDistance = TwoPointDistance(
-                    distance(strip[i], strip[j]), stripIndex[i], stripIndex[j])
+                    temp_distance, stripIndex[i], stripIndex[j])
 
     return resMinDistance
 
@@ -65,6 +77,7 @@ def divide(listPoint: list[Point], firstI: int, lastI: int) -> TwoPointDistance:
     tmpRes1: TwoPointDistance
     tmpRes2: TwoPointDistance
     resMinDistance: TwoPointDistance
+    global countDNC
 
     # Jika first index = last index
     # Kasus jumlah elemen = 1
@@ -72,6 +85,7 @@ def divide(listPoint: list[Point], firstI: int, lastI: int) -> TwoPointDistance:
         return TwoPointDistance(float('inf'), firstI, firstI)
     # Kasus jumlah elemen = 2
     elif (firstI+1 == lastI):
+        countDNC += 1
         return TwoPointDistance(distance(listPoint[firstI], listPoint[lastI]), firstI, lastI)
     # Kasus lain
     else:
@@ -113,7 +127,6 @@ def distance(point1: Point, point2: Point) -> float:
     for i in range(point1.dimension):
         sum += (point1.values[i]-point2.values[i])**2
     return math.sqrt(sum)
-
 
 def mergeSortPoint(listPoint: list[Point], index: int):
     if len(listPoint) > 1:
@@ -182,7 +195,7 @@ def mergeSortZip(listZip, index: int):
         lengthLeft = len(leftHalf)
         lengthRight = len(rightHalf)
         while i < lengthLeft and j < lengthRight:
-            if listZip[i][0].values[index] < listZip[j][0].values[index]:
+            if leftHalf[i][0].values[index] < rightHalf[j][0].values[index]:
                 listZip[k] = leftHalf[i]
                 i += 1
             else:
