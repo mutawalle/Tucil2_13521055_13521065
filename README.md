@@ -6,6 +6,7 @@ Disusun untuk memenuhi Tugas Kecil 2 IF2211 Strategi Algoritma "Mencari Pasangan
 * [Struktur Program](#struktur-program)
 * [Requirement Program](#requirement-program)
 * [Cara Menjalankan Program](#cara-menjalankan-program)
+* [Screenshot](#screenshot)
 * [Author](#author)
 
 ## Deskripsi Singkat Program
@@ -34,6 +35,24 @@ Pada mulanya kumpulan titik akan akan dibagi menjadi dua bagian. Kemudian setiap
 
 ## Cara Menjalankan Program
 1. Jalankan main.py yang berada pada folder src dengan mengetik `python main.py`
+
+## Screenshot
+### TC1 (n = 16, d = 3)
+<p align="center">
+    <img src="https://github.com/mutawalle/Tucil2_13521055_13521065/blob/main/img/test1.jpg" height="300">
+    <img src="https://github.com/mutawalle/Tucil2_13521055_13521065/blob/main/img/plot1.jpg" height="300">
+</p>
+
+### TC2 (n = 100, d = 2)
+<p align="center">
+    <img src="https://github.com/mutawalle/Tucil2_13521055_13521065/blob/main/img/test2.jpg" height="300">
+    <img src="https://github.com/mutawalle/Tucil2_13521055_13521065/blob/main/img/plot2.jpg" height="300">
+</p>
+
+### TC3 (n = 1000, d = 10)
+<p align="center">
+    <img src="https://github.com/mutawalle/Tucil2_13521055_13521065/blob/main/img/test3.jpg" height="300">
+</p>
 
 ## Author
 * Nama: Muhammad Bangkit Dwi Cahyono
