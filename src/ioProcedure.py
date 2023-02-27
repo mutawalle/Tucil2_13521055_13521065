@@ -12,9 +12,9 @@ def inputProc(n: int, d: int, listPoint: list[Point]):
 
     while (len(listPoint) < n):
         tmpPoint: Point
-        tmpValues: list[int] = []
+        tmpValues: list[float] = []
         for i in range(d):
-            tmpValues.append(math.floor(random.random()*1000))
+            tmpValues.append(round(random.uniform(-1000, 1000), 2))
         tmpPoint = Point(d, tmpValues)
 
         # check agar tidak duplikat

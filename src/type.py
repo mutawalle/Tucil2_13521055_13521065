@@ -1,5 +1,5 @@
 class Point:
-    def __init__(self, dimension: int, values: list[int]):
+    def __init__(self, dimension: int, values: list[float]):
         self.dimension = dimension
         self.values = values
 
